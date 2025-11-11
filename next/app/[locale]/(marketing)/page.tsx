@@ -15,28 +15,32 @@ export default async function HomePage(props: {
   params: Promise<{ locale: string }>;
 }) {
   const params = await props.params;
+  const { locale } = params;
+  const isVietnamese = locale === 'vi';
 
   return (
-    <main className="w-full h-screen overflow-hidden pt-[55px] md:pt-[60px] xl:pt-[84px]">
+    <main className="w-full h-screen overflow-hidden pt-[55px] md:pt-[60px] xl:pt-[84px] transition-all duration-300 ease-in-out">
       {/* Hero Section - 2 columns full height, no scroll */}
-      <div className="flex flex-col lg:flex-row h-full">
+      <div className="flex flex-col lg:flex-row h-full transition-all duration-500 ease-in-out">
         
         {/* Left Column - Tháp văn phòng */}
-        <div className="relative w-full lg:flex-[0_0_50%] lg:max-w-[50%] h-1/2 lg:h-full overflow-hidden group cursor-pointer">
+        <div className="relative w-full lg:flex-[0_0_50%] lg:max-w-[50%] h-1/2 lg:h-full overflow-hidden group cursor-pointer transition-all duration-700 ease-in-out">
           <img 
             src="/images/thap-van-phong.jpg" 
-            alt="Tháp văn phòng IPH"
-            className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110"
+            alt={isVietnamese ? "Tháp văn phòng IPH" : "IPH Office Tower"}
+            className="w-full h-full object-cover object-center transition-all duration-700 ease-out group-hover:scale-110"
           />
           <a 
-            href="/thap-van-phong" 
-            className="absolute inset-0 z-10 flex items-center justify-center text-white text-[40px] xl:text-[40px] leading-tight transition-colors duration-300 group-hover:text-[#e06b7a] text-center max-xl:text-[24px]"
+            href={`/${locale}/thap-van-phong`} 
+            className="absolute inset-0 z-10 flex items-center justify-center text-white text-[40px] xl:text-[40px] leading-tight transition-all duration-500 ease-in-out group-hover:text-[#e06b7a] text-center max-xl:text-[24px]"
             style={{
               background: 'linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%)'
             }}
           >
             <span>
-              <span className="font-medium">Tháp văn phòng</span>
+              <strong className="font-bold">
+                {isVietnamese ? "Tháp văn phòng" : "Office Tower"}
+              </strong>
               <br />
               <strong className="font-bold">IPH</strong>
             </span>
@@ -44,21 +48,23 @@ export default async function HomePage(props: {
         </div>
 
         {/* Right Column - THE LOOP */}
-        <div className="relative w-full lg:flex-[0_0_50%] lg:max-w-[50%] h-1/2 lg:h-full overflow-hidden group cursor-pointer">
+        <div className="relative w-full lg:flex-[0_0_50%] lg:max-w-[50%] h-1/2 lg:h-full overflow-hidden group cursor-pointer transition-all duration-700 ease-in-out">
           <img 
             src="/images/anh-tttm.jpg" 
-            alt="Trung tâm thương mại THE LOOP"
-            className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110"
+            alt={isVietnamese ? "Trung tâm thương mại THE LOOP" : "THE LOOP Shopping Mall"}
+            className="w-full h-full object-cover object-center transition-all duration-700 ease-out group-hover:scale-110"
           />
           <a 
-            href="/the-loop" 
-            className="absolute inset-0 z-10 flex items-center justify-center text-white text-[40px] xl:text-[40px] leading-tight transition-colors duration-300 group-hover:text-[#e06b7a] text-center max-xl:text-[24px]"
+            href={`/${locale}/the-loop`} 
+            className="absolute inset-0 z-10 flex items-center justify-center text-white text-[40px] xl:text-[40px] leading-tight transition-all duration-500 ease-in-out group-hover:text-[#e06b7a] text-center max-xl:text-[24px]"
             style={{
               background: 'linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)'
             }}
           >
             <span>
-              <span className="font-medium">Trung tâm Thương mại</span>
+              <strong className="font-bold">
+                {isVietnamese ? "Trung tâm Thương mại" : "Shopping Mall"}
+              </strong>
               <br />
               <strong className="font-bold">THE LOOP</strong>
             </span>
