@@ -1,23 +1,17 @@
 import { Metadata } from 'next';
 import { ViewTransitions } from 'next-view-transitions';
-import { Inter } from 'next/font/google';
 import { draftMode } from 'next/headers';
 import React from 'react';
 
 import { DraftModeBanner } from '@/components/draft-mode-banner';
 import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar';
+import { Header } from '@/components/header';
 import { AIToast } from '@/components/toast';
 import { CartProvider } from '@/context/cart-context';
 import { generateMetadataObject } from '@/lib/shared/metadata';
 import fetchContentType from '@/lib/strapi/fetchContentType';
 import { cn } from '@/lib/utils';
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500', '600', '700', '800', '900'],
-});
 
 // Default Global SEO for pages without them
 export async function generateMetadata(props: {
@@ -58,16 +52,13 @@ export default async function LocaleLayout(props: {
   return (
     <ViewTransitions>
       <CartProvider>
-        <div
-          className={cn(
-            inter.className,
-            'bg-charcoal antialiased h-full w-full'
-          )}
-        >
-          <Navbar data={pageData.navbar} locale={locale} />
+        <div className="bg-white antialiased h-full w-full">
+          {/* IPH Header - Logo and language switcher */}
+          <Header locale={locale} />
+          
+          {/* Main content */}
           {children}
-          <Footer data={pageData.footer} locale={locale} />
-          <AIToast />
+          
           {isDraftMode && <DraftModeBanner />}
         </div>
       </CartProvider>
