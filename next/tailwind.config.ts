@@ -13,6 +13,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Lato', 'sans-serif'],
+        primary: ['Lato', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
+      },
       colors: {
         charcoal: '#08090A',
         lightblack: '#1C1C1C',

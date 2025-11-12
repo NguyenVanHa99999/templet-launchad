@@ -3,39 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Basel Classic Font - Uncomment when font files are added to /public/fonts/ */
-/*
-@font-face {
-  font-family: 'Basel Classic';
-  src: url('/fonts/basel-classic-regular.woff2') format('woff2'),
-       url('/fonts/basel-classic-regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Basel Classic';
-  src: url('/fonts/basel-classic-medium.woff2') format('woff2'),
-       url('/fonts/basel-classic-medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Basel Classic';
-  src: url('/fonts/basel-classic-bold.woff2') format('woff2'),
-       url('/fonts/basel-classic-bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-*/
+/* ================================================
+   FONT CONFIGURATION - Lato from Google Fonts
+   ================================================ */
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --font-basel: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-primary: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,11 +18,20 @@
   }
 }
 
+/* ================================================
+   GLOBAL STYLES
+   ================================================ */
+
 body {
   color: rgb(var(--foreground-rgb));
-  font-family: var(--font-basel);
+  font-family: var(--font-primary);
+  font-weight: 400;
   overflow: hidden;
 }
+
+/* ================================================
+   SCROLLBAR HIDE
+   ================================================ */
 
 /* Hide scrollbar for all browsers */
 ::-webkit-scrollbar {
@@ -59,6 +42,10 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* ================================================
+   UTILITY CLASSES
+   ================================================ */
 
 @layer utilities {
   .text-balance {
