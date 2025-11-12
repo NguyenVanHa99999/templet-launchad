@@ -16,9 +16,9 @@ export default async function ThapVanPhongPage({
       {/* Body - Full width column with 4 corner coverage */}
       <div className="w-full h-[calc(100vh-84px)] pt-[84px] flex flex-col">
         <div className="flex-1 w-full bg-white flex flex-col">
-          {/* Horizontal column - nhỏ nằm ngang */}
-          <div className="w-full h-20 flex items-end justify-center pb-2">
-            <h2 className="text-3xl font-medium uppercase text-center text-black leading-none">
+          {/* Horizontal column - nhỏ nằm ngang - Responsive container */}
+          <div className="w-full h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 flex items-center justify-center px-4 py-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold uppercase text-center text-black leading-tight">
               {isVietnamese ? 'Tháp văn phòng' : 'Office Tower'}
             </h2>
           </div>       
