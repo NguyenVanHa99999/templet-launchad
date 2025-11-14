@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
 interface HeaderProps {
@@ -9,8 +10,14 @@ interface HeaderProps {
 }
 
 export function Header({ locale }: HeaderProps) {
+  const pathname = usePathname();
   const isVietnamese = locale === 'vi';
   const alternateLocale = isVietnamese ? 'en' : 'vi';
+  
+  // Lấy path hiện tại và thay locale
+  const currentPath = pathname.replace(`/${locale}`, '');
+  const alternatePath = `/${alternateLocale}${currentPath}`;
+  
   // Hiển thị ngôn ngữ HIỆN TẠI (không phải ngôn ngữ sẽ chuyển đến)
   const currentLang = isVietnamese ? 'VIETNAM' : 'ENGLISH';
   const currentFlag = isVietnamese ? '/images/flags/vietnam.png' : '/images/flags/uk.png';
@@ -49,7 +56,7 @@ export function Header({ locale }: HeaderProps) {
             </span>
             
             <Link
-              href={`/${alternateLocale}`}
+              href={alternatePath}
               className="flex items-center gap-1 font-medium text-black hover:text-[#cd5766] transition-all duration-[400ms] ease-in-out"
             >
               <span className="hidden sm:inline">{currentLang}</span>
