@@ -13,8 +13,8 @@ export default async function ThapVanPhongPage({
   const { locale } = await params;
   const isVietnamese = locale === 'vi';
 
-  // Fetch data from Strapi
-  const data = await fetchThapVanPhong();
+  // Fetch data from Strapi with locale
+  const data = await fetchThapVanPhong(locale);
   const thapVanPhong = data as ThapVanPhong | null;
 
   // Fallback if no data
@@ -49,7 +49,7 @@ export default async function ThapVanPhongPage({
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
             {/* Left - Image from Strapi */}
             <div className="md:col-span-6">
-              <div className="zoom-img overflow-hidden rounded">
+              <div className="zoom-img overflow-hidden">
                 {imageUrl ? (
                   <Image
                     src={imageUrl}

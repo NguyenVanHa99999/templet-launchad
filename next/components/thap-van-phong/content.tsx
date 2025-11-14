@@ -12,16 +12,16 @@ interface ThapVanPhongContentProps {
  */
 export function ThapVanPhongContent({ content }: ThapVanPhongContentProps) {
   return (
-    <div className="desc text-gray-800 leading-relaxed">
+    <div className="desc text-black leading-relaxed">
       <BlocksRenderer
         content={content}
         blocks={{
-          paragraph: ({ children }) => <p className="mb-4">{children}</p>,
+          paragraph: ({ children }) => <p className="mb-4 text-black">{children}</p>,
           list: ({ children, format }) => {
             if (format === 'unordered') {
-              return <ul className="list-disc pl-5 mb-4 text-gray-800">{children}</ul>;
+              return <ul className="list-disc pl-5 mb-4 text-black">{children}</ul>;
             }
-            return <ol className="list-decimal pl-5 mb-4 text-gray-800">{children}</ol>;
+            return <ol className="list-decimal pl-5 mb-4 text-black">{children}</ol>;
           },
           'list-item': ({ children }) => <li>{children}</li>,
           link: ({ children, url }) => (
@@ -35,7 +35,7 @@ export function ThapVanPhongContent({ content }: ThapVanPhongContentProps) {
             </a>
           ),
           heading: ({ children, level }) => {
-            const className = level === 1 ? 'text-2xl font-bold mb-4' : 'text-xl font-semibold mb-3';
+            const className = level === 1 ? 'text-2xl font-bold mb-4 text-black' : 'text-xl font-semibold mb-3 text-black';
             switch (level) {
               case 1:
                 return <h1 className={className}>{children}</h1>;
