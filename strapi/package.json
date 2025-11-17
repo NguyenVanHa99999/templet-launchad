@@ -4,13 +4,15 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
+    "predevelop": "node ./scripts/createDatabase.js",
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
     "deploy": "strapi deploy",
     "seed": "strapi import -f ./data/export_20250116105447.tar.gz",
-    "postinstall": "node ./scripts/updateUuid.js"
+    "setup:db": "node ./scripts/createDatabase.js",
+    "postinstall": "node ./scripts/updateUuid.js && node ./scripts/createDatabase.js"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -25,6 +27,7 @@
     "@strapi/plugin-users-permissions": "5.30.0",
     "@strapi/strapi": "5.30.0",
     "better-sqlite3": "11.7.0",
+    "mysql2": "^3.15.3",
     "patch-package": "^8.0.0",
     "pluralize": "^8.0.0",
     "react": "^18.0.0",
