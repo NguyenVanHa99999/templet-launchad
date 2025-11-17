@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Header } from '@/components/header';
 import { fetchThapVanPhong } from '@/lib/strapi/fetchThapVanPhong';
 import { ThapVanPhongContent } from '@/components/thap-van-phong/content';
 import { strapiImage } from '@/lib/strapi/strapiImage';
@@ -20,8 +19,7 @@ export default async function ThapVanPhongPage({
   // Fallback if no data
   if (!thapVanPhong) {
     return (
-      <main className="w-full min-h-screen bg-white pt-[84px]">
-        <Header locale={locale} />
+      <main className="w-full min-h-screen bg-white pt-[55px] md:pt-[60px] xl:pt-[84px]">
         <section className="container mx-auto px-4 py-16">
           <p className="text-gray-500 text-center">
             {isVietnamese ? 'Không tìm thấy dữ liệu' : 'No data found'}
@@ -36,9 +34,7 @@ export default async function ThapVanPhongPage({
     : null;
 
   return (
-    <main className="w-full min-h-screen bg-white pt-[84px]">
-      <Header locale={locale} />
-
+    <main className="w-full min-h-screen bg-white pt-[55px] md:pt-[60px] xl:pt-[84px]">
       <section className="office office_full section_border py-16 border-t border-gray-100 relative">
         <div className="container mx-auto px-4 pt-12 md:pt-16">
           {/* Title */}

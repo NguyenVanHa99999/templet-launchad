@@ -1,17 +1,11 @@
 import { Metadata } from 'next';
 import { ViewTransitions } from 'next-view-transitions';
 import { draftMode } from 'next/headers';
-import React from 'react';
 
 import { DraftModeBanner } from '@/components/draft-mode-banner';
-import { Footer } from '@/components/footer';
-import { Navbar } from '@/components/navbar';
-import { Header } from '@/components/header';
-import { AIToast } from '@/components/toast';
 import { CartProvider } from '@/context/cart-context';
 import { generateMetadataObject } from '@/lib/shared/metadata';
 import fetchContentType from '@/lib/strapi/fetchContentType';
-import { cn } from '@/lib/utils';
 
 // Default Global SEO for pages without them
 export async function generateMetadata(props: {
@@ -32,30 +26,20 @@ export async function generateMetadata(props: {
   return metadata;
 }
 
-export default async function LocaleLayout(props: {
+interface LocaleLayoutProps {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
-}) {
-  const params = await props.params;
+}
 
-  const { locale } = params;
-
+export default async function LocaleLayout(props: LocaleLayoutProps) {
   const { children } = props;
 
   const { isEnabled: isDraftMode } = await draftMode();
 
-  const pageData = await fetchContentType(
-    'global',
-    { filters: { locale } },
-    true
-  );
   return (
     <ViewTransitions>
       <CartProvider>
         <div className="bg-white antialiased h-full w-full">
-          {/* IPH Header - Logo and language switcher */}
-          <Header locale={locale} />
-          
           {/* Main content */}
           {children}
           

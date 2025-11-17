@@ -3,13 +3,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
 
-interface HeaderProps {
+interface HeaderMarketingProps {
   locale: string;
 }
 
-export function Header({ locale }: HeaderProps) {
+/**
+ * Header Marketing - Header cho các trang marketing (homepage, blog, products, thap-van-phong)
+ * - Logo IPH + Language Switcher
+ * - Fixed position với background trắng
+ * - Responsive height: 55px -> 84px
+ */
+export function HeaderMarketing({ locale }: HeaderMarketingProps) {
   const pathname = usePathname();
   const isVietnamese = locale === 'vi';
   const alternateLocale = isVietnamese ? 'en' : 'vi';
@@ -27,7 +32,7 @@ export function Header({ locale }: HeaderProps) {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-2 sm:py-3 md:py-4">
           
-          {/* Logo - Responsive: mobile 32px -> desktop 74px max */}
+          {/* Logo - Responsive: mobile 40px -> desktop 74px max */}
           <div className="relative flex-shrink-0 px-0 sm:px-[15px]">
             <Link 
               href={`/${locale}`} 
