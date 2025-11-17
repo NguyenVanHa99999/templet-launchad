@@ -68,7 +68,7 @@ export default async function ThapVanPhongPage({
             </div>
 
             {/* Right - Content from Strapi */}
-            <div className="md:col-span-5 md:col-start-8">
+            <div className="md:col-span-5 md:col-start-8 mt-4 md:mt-6">
               <div className="office_content relative">
                 {/* Divider line */}
                 <div className="w-36 h-0.5 bg-gray-300 mb-6 rounded-full"></div>
