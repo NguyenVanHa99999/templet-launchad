@@ -1,111 +1,353 @@
-# LaunchPad - Official Strapi Demo
+# 🚀 Templet Launchad
 
-![LaunchPad](./LaunchPad.jpg)
+Dự án Full-stack với Next.js (Frontend) và Strapi CMS (Backend).
 
-Welcome aboard **LaunchPad**, the official Strapi demo application, where we launch your content into the stratosphere at the speed of _"we-can't-even-measure-it!"_.
-This repository contains the following:
+---
 
-- A Strapi project with content-types and data already onboard
-- A Next.js client that's primed and ready to fetch the content from Strapi faster than you can say "blast off!"
+## 📋 Yêu Cầu Hệ Thống
 
-## 🌌 Get started
+- **Node.js**: >= 18.x
+- **Yarn**: >= 1.22.x
+- **MySQL**: >= 8.0
+- **Git**: Để clone project
 
-Strap yourself in! You can get started with this project on your local machine by following the instructions below, or you can [request a private instance on our website](https://strapi.io/demo)
+### **Cài Đặt Các Công Cụ Cần Thiết**
 
-## 1. Clone Launchpad
+#### **1. Cài Node.js**
 
-To infinity and beyond! 🚀 Clone the repo with this command:
+**macOS:**
+```bash
+# Dùng Homebrew
+brew install node@18
 
-```
-git clone https://github.com/strapi/launchpad.git
-```
-
-- Navigate to your project folder by running `cd launchpad`.
-
-## 2. Set up environment variables
-
-Before you take off, set up the required environment variables for both Strapi and Next.js.
-
-To create the Strapi .env file, copy the content of the `./strapi/.env.example` file into a new file named `./strapi/.env`, then modify the values to match your setup:
-
-```sh
-cp ./strapi/.env.example ./strapi/.env
+# Hoặc tải từ trang chủ
+# https://nodejs.org/
 ```
 
-Then do the same for the Next.js .env file, and modify it too:
+**Windows:**
+- Tải installer từ: https://nodejs.org/
+- Chọn phiên bản LTS (18.x hoặc mới hơn)
+- Chạy file `.msi` và làm theo hướng dẫn
 
-```sh
-cp ./next/.env.example ./next/.env
+**Linux (Ubuntu/Debian):**
+```bash
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
 
-## 3. Start Strapi
-
-Take a deep breath. It's time to power up the Strapi engines. Navigate to your ./my-projects/launchpad/strapi folder by running:
-
-Navigate to your `./my-projects/launchpad/strapi` folder by running `cd strapi` from your command line.
-
-- Run the following command in your `./launchpad/strapi` folder:
-
-```
-yarn && yarn seed && yarn develop
+**Kiểm tra cài đặt:**
+```bash
+node --version  # Phải >= v18.x
+npm --version
 ```
 
-This will install dependencies, sprinkle in some data magic, and run the server. (You can run these commands separately, but why not be efficient?)
+#### **2. Cài Yarn**
 
-## 4. Start Next.js
+```bash
+# Sau khi đã cài Node.js
+npm install -g yarn
 
-We're almost ready for lift-off! Next.js is your sleek, futuristic interface for getting all that glorious content out into the world. 🚀
-
-Open a new terminal tab or window to leave Strapi running, and navigate to your `./my-projects/launchpad/next` folder by running `cd next`.
-
-- Run the following command in your `./launchpad/next` folder
-
-```
-yarn && yarn build && yarn start
+# Kiểm tra
+yarn --version  # Phải >= 1.22.x
 ```
 
-This installs dependencies, builds your project, and starts your server. You’re now a spacefaring content master!
+#### **3. Cài MySQL**
 
-## Features Overview ✨
+**macOS:**
+```bash
+# Dùng Homebrew
+brew install mysql@8.0
+brew services start mysql
 
-### User
+# Thiết lập mật khẩu root
+mysql_secure_installation
+```
 
-<br />
+**Windows:**
+- Tải MySQL Installer: https://dev.mysql.com/downloads/installer/
+- Chọn "MySQL Server 8.0"
+- Làm theo hướng dẫn cài đặt
+- Nhớ mật khẩu root đã đặt!
 
-**An intuitive, minimal editor** The editor allows you to pull in dynamic blocks of content. It’s 100% open-source, and it’s fully extensible.<br />
-**Media Library** Upload images, video or any files and crop and optimize their sizes, without quality loss.<br />
-**Flexible content management** Build any type of category, section, format or flow to adapt to your needs. <br />
-**Sort and Filter** Built-in sorting and filtering: you can manage thousands of entries without effort.<br />
-**User-friendly interface** The most user-friendly open-source interface on the market.<br />
-**SEO optimized** Easily manage your SEO metadata with a repeatable field and use our Media Library to add captions, notes, and custom filenames to optimize the SEO of media assets.<br /><br />
+**Linux (Ubuntu/Debian):**
+```bash
+sudo apt update
+sudo apt install mysql-server
+sudo mysql_secure_installation
+```
 
-### Global
+**Kiểm tra MySQL:**
+```bash
+mysql --version  # Phải >= 8.0
+mysql -u root -p  # Đăng nhập thử
+```
 
-<br />
+---
 
-[Customizable API](https://strapi.io/features/customizable-api): Automatically build out the schema, models, controllers for your API from the editor. Get REST or GraphQL API out of the box without writing a single line of code.<br />
-[Media Library](https://strapi.io/features/media-library): The media library allows you to store your images, videos and files in your Strapi admin panel with many ways to visualize and manage them.<br />
-[Role-Based Access Control (RBAC)](https://strapi.io/features/custom-roles-and-permissions): Role-Based Access Control is a feature available in the Administration Panel settings that let your team members have access rights only to the information they need.<br />
-[Internationalization (i18n)](https://strapi.io/features/internationalization): Internationalization (i18n) lets you create many content versions, also called locales, in different languages and for different countries.<br />
-[Audit Logs](https://strapi.io/blog/reasons-and-best-practices-for-using-audit-logs-in-your-application)The Audit Logs section provides a searchable and filterable display of all activities performed by users of the Strapi application<br />
-[Data transfer](https://strapi.io/blog/importing-exporting-and-transferring-data-with-the-strapi-cli) Streams your data from one Strapi instance to another Strapi instance.<br />
-[Review Worfklows](https://docs.strapi.io/user-docs/settings/review-workflows) Create and manage any desired review stages for your content, enabling your team to collaborate in the content creation flow from draft to publication. <br />
+## 🛠️ Cài Đặt & Chạy Dự Án
 
-## Resources
+### **Bước 1: Clone Project**
 
-[Docs](https://docs.strapi.io) • [Demo](https://strapi.io/demo) • [Forum](https://forum.strapi.io/) • [Discord](https://discord.strapi.io) • [Youtube](https://www.youtube.com/c/Strapi/featured) • [Strapi Design System](https://design-system.strapi.io/) • [Marketplace](https://market.strapi.io/) • [Cloud Free Trial](https://cloud.strapi.io)
+```bash
+git clone <repository-url>
+cd templet-launchad
+```
 
-## Todo
+### **Bước 2: Cài Đặt Dependencies**
 
-- [ ] Implement the official Strapi SEO plugin
-- [ ] Implement the community Strapi preview plugin
-- [ ] Create localized content for the pricing plans and products
-- [ ] Populate creator fields when it'll work on Strapi 5 (article authors information are missing)
+```bash
+yarn install
+```
 
-## Customization
+### **Bước 3: Cấu Hình Database**
 
-- The Strapi application contains a custom population middleware in order to populate more data than what it is set by default. You can find it in the `./strapi/src/middlewares/deepPopulate.ts` file.
+1. Tạo database MySQL:
+```bash
+mysql -u root -p
+CREATE DATABASE iph;
+EXIT;
+```
 
-- The Strapi application contains a postinstall script that will regenerate an uuid for the project in order to get some anonymous usage information concerning this demo. You can disable it by removing the uuid inside the `./strapi/packages.json` file.
+2. Cấu hình Strapi:
+   - Mở file `templet-launchad/strapi/.env.example`
+   - Tìm dòng `DATABASE_PASSWORD=YOUR_PASSWORD_HERE`
+   - Thay `YOUR_PASSWORD_HERE` bằng mật khẩu MySQL của bạn
+   - Lưu file
 
-- The Strapi application contains a patch for the @strapi/admin package. It is only necessary for the hosted demos since we automatically create the Super Admin users for them when they request this demo on our website.
+**Ví dụ:**
+```env
+DATABASE_PASSWORD=your_mysql_password
+```
+
+### **Bước 4: Chạy Dự Án**
+
+```bash
+yarn develop
+```
+
+Lệnh này sẽ chạy **đồng thời**:
+- ✅ **Backend (Strapi)**: `http://localhost:1337`
+- ✅ **Frontend (Next.js)**: `http://localhost:3000`
+
+---
+
+## 🌐 Truy Cập Ứng Dụng
+
+### **Frontend (Website)**
+```
+http://localhost:3000
+```
+
+### **Backend (Strapi Admin)**
+```
+http://localhost:1337/admin
+```
+
+**Lần đầu truy cập:** Tạo tài khoản admin mới
+
+---
+
+## 📁 Cấu Trúc Project
+
+```
+templet-launchad/
+├── next/                  # Frontend (Next.js)
+│   ├── app/              # Next.js App Router
+│   ├── components/       # React Components
+│   └── public/           # Static files
+│
+├── strapi/               # Backend (Strapi CMS)
+│   ├── src/
+│   │   ├── api/         # API endpoints
+│   │   └── admin/       # Admin customization
+│   ├── config/          # Configuration
+│   └── .env.example     # Environment variables template
+│
+└── package.json         # Root package.json
+```
+
+---
+
+## 🔧 Scripts Có Sẵn
+
+### **Development (Chạy cả 2)**
+```bash
+yarn develop
+```
+
+### **Chạy riêng Frontend**
+```bash
+yarn dev:next
+```
+
+### **Chạy riêng Backend**
+```bash
+yarn dev:strapi
+```
+
+### **Build Production**
+```bash
+yarn build
+```
+
+### **Start Production**
+```bash
+yarn start
+```
+
+---
+
+## 📦 Backup & Restore Data
+
+⚠️ **LƯU Ý QUAN TRỌNG:** 
+- Trước khi đẩy code lên repo, **BẮT BUỘC** phải backup data!
+- Khi team khác clone về, họ cần import data để có đầy đủ content.
+
+### **Export Data (Backup)**
+
+#### **Cách 1: Backup KHÔNG MÃ HÓA (Khuyến nghị cho development)**
+
+```bash
+cd strapi
+npm run strapi export -- --no-encrypt --file data/backup_$(date +%Y%m%d).tar.gz
+```
+
+→ Không cần mật khẩu, file backup không được mã hóa  
+→ Dễ dàng import lại, phù hợp cho team development
+
+#### **Cách 2: Backup CÓ MÃ HÓA (Cho production/sensitive data)**
+
+```bash
+cd strapi
+npm run strapi export -- --file data/backup_$(date +%Y%m%d).tar.gz
+```
+
+**Strapi sẽ hỏi encryption key:**
+```
+? Please enter an encryption key [input is hidden]
+```
+
+→ Nhập mật khẩu (ví dụ: `backup2024`) và nhấn Enter  
+→ **Nhớ mật khẩu này** để import sau!
+
+**Kết quả:**
+```
+✔ entities: 191 transferred
+✔ assets: 115 transferred
+→ File: strapi/data/backup_20251118.tar.gz
+```
+
+### **Import Data (Restore)**
+
+#### **Nếu file backup KHÔNG MÃ HÓA:**
+
+```bash
+cd strapi
+npm run strapi import -- --file data/backup_20251118.tar.gz
+```
+
+→ Không cần nhập mật khẩu, import trực tiếp
+
+#### **Nếu file backup CÓ MÃ HÓA:**
+
+```bash
+cd strapi
+npm run strapi import -- --file data/backup_20251118.tar.gz
+```
+
+**Strapi sẽ hỏi encryption key:**
+```
+? Please enter the decryption key [input is hidden]
+```
+
+→ Nhập **ĐÚNG mật khẩu** đã dùng khi export
+
+---
+
+**Xác nhận (cả 2 trường hợp):**
+```
+? The import will delete your existing data! Are you sure? (Y/n)
+```
+
+→ Gõ `Y` nếu chắc chắn (⚠️ Sẽ xóa data hiện tại!)
+
+⚠️ **Lưu ý:** 
+- Import sẽ **XÓA** data hiện tại
+- Luôn backup database trước khi import
+- Nếu có mã hóa, encryption key phải **GIỐNG NHAU** khi export/import
+
+---
+
+## 🐛 Troubleshooting
+
+### **Lỗi: "Cannot connect to database"**
+- Kiểm tra MySQL đã chạy chưa
+- Kiểm tra `DATABASE_PASSWORD` trong `strapi/.env.example`
+- Đảm bảo database `iph` đã được tạo
+
+### **Lỗi: "Port 3000 already in use"**
+```bash
+# Tìm và kill process đang dùng port 3000
+lsof -ti:3000 | xargs kill -9
+```
+
+### **Lỗi: "Port 1337 already in use"**
+```bash
+# Tìm và kill process đang dùng port 1337
+lsof -ti:1337 | xargs kill -9
+```
+
+### **Reset hoàn toàn**
+```bash
+# Xóa node_modules và cài lại
+rm -rf node_modules next/node_modules strapi/node_modules
+yarn install
+```
+
+---
+
+## 📝 Environment Variables
+
+### **Strapi (.env.example)**
+```env
+# Database
+DATABASE_CLIENT=mysql
+DATABASE_HOST=localhost
+DATABASE_PORT=3306
+DATABASE_NAME=iph
+DATABASE_USERNAME=root
+DATABASE_PASSWORD=YOUR_PASSWORD_HERE  # ← Thay đổi ở đây!
+
+# Strapi
+ADMIN_JWT_SECRET=tobemodified
+JWT_SECRET=tobemodified
+
+# Next.js
+CLIENT_URL=http://localhost:3000
+```
+
+---
+
+## 🤝 Contributing
+
+1. Fork project
+2. Tạo branch mới (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Tạo Pull Request
+
+---
+
+## 📄 License
+
+[Thêm license của bạn ở đây]
+
+---
+
+## 💬 Support
+
+Nếu gặp vấn đề, vui lòng tạo issue trên GitHub hoặc liên hệ team.
+
+---
+
+**Happy Coding! 🎉**
