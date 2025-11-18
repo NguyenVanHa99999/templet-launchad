@@ -208,8 +208,7 @@ yarn start
 #### **Cách 1: Backup KHÔNG MÃ HÓA (Khuyến nghị cho development)**
 
 ```bash
-cd strapi
-npm run strapi export -- --no-encrypt --file data/backup_$(date +%Y%m%d).tar.gz
+cd strapi && yarn strapi export --no-encrypt -f ./data/backup_20251118
 ```
 
 → Không cần mật khẩu, file backup không được mã hóa  
@@ -218,9 +217,10 @@ npm run strapi export -- --no-encrypt --file data/backup_$(date +%Y%m%d).tar.gz
 #### **Cách 2: Backup CÓ MÃ HÓA (Cho production/sensitive data)**
 
 ```bash
-cd strapi
-npm run strapi export -- --file data/backup_$(date +%Y%m%d).tar.gz
+cd strapi && yarn strapi export -f ./data/backup_20251118
 ```
+
+**Chỉ cần BỎ `--no-encrypt`!**
 
 **Strapi sẽ hỏi encryption key:**
 ```
@@ -240,19 +240,17 @@ npm run strapi export -- --file data/backup_$(date +%Y%m%d).tar.gz
 ### **Import Data (Restore)**
 
 #### **Nếu file backup KHÔNG MÃ HÓA:**
+file backup không có mã hóa đang được cải script rồi nên chỉ cần chạy lệnh 
 
 ```bash
-cd strapi
-npm run strapi import -- --file data/backup_20251118.tar.gz
+cd templet-launchad && yarn develop
 ```
-
-→ Không cần nhập mật khẩu, import trực tiếp
+- Lưu ý chạy yarn install trước nhé rồi mới run yarn develop nhé sẽ tự động import data
 
 #### **Nếu file backup CÓ MÃ HÓA:**
 
 ```bash
-cd strapi
-npm run strapi import -- --file data/backup_20251118.tar.gz
+cd strapi && yarn strapi import -f ./data/backup_20251118.tar.gz --force
 ```
 
 **Strapi sẽ hỏi encryption key:**
@@ -264,7 +262,7 @@ npm run strapi import -- --file data/backup_20251118.tar.gz
 
 ---
 
-**Xác nhận (cả 2 trường hợp):**
+**Nếu KHÔNG dùng `--force`, Strapi sẽ hỏi xác nhận:**
 ```
 ? The import will delete your existing data! Are you sure? (Y/n)
 ```
@@ -275,6 +273,7 @@ npm run strapi import -- --file data/backup_20251118.tar.gz
 - Import sẽ **XÓA** data hiện tại
 - Luôn backup database trước khi import
 - Nếu có mã hóa, encryption key phải **GIỐNG NHAU** khi export/import
+- Dùng `--force` để tự động xác nhận (cẩn thận!)
 
 ---
 
