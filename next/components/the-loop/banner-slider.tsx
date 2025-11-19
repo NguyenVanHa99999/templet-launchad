@@ -31,7 +31,7 @@ export function BannerSlider({ banners }: BannerSliderProps) {
     return null;
   }
   return (
-    <section className="banner relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden bg-gray-900">
+    <section className="banner relative w-full overflow-hidden bg-gray-900">
       <Swiper
         modules={[Autoplay]}
         effect="slide"
@@ -53,13 +53,13 @@ export function BannerSlider({ banners }: BannerSliderProps) {
 
           return (
             <SwiperSlide key={banner.id}>
-              <div className="relative w-full h-full">
+              <div className="relative w-full aspect-[3/1] sm:aspect-[3/1] md:aspect-[2.75/1] lg:aspect-[2.45/1]">
                 <Image
                   src={imageUrl}
                   alt={altText}
                   fill
                   priority={index === 0}
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="100vw"
                 />
               </div>

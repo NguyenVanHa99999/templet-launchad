@@ -56,11 +56,11 @@ export function HeaderLoop({ locale }: HeaderLoopProps) {
   }, [scrolled]);
 
   return (
-    <header className={`w-full bg-white sticky top-0 z-50 shadow-sm transition-all duration-300 ${scrolled ? '' : 'min-h-[180px]'}`}>
+    <header className={`w-full bg-white sticky top-0 z-50 shadow-sm transition-all duration-300 ${scrolled ? '' : 'min-h-[70px] md:min-h-[180px]'}`}>
       {/* Header Top */}
       <section className={`transition-all duration-300 overflow-hidden ${scrolled ? 'max-h-0 opacity-0' : 'max-h-[200px] opacity-100'}`}>
-        <div className="container mx-auto px-4 pt-6">
-          <div className="flex items-center justify-between md:justify-center py-3 md:py-4 relative">
+        <div className="container mx-auto px-4 pt-3 md:pt-6">
+          <div className="flex items-center justify-between md:justify-center py-1.5 md:py-4 relative">
             {/* Logo - Left on mobile, Center on desktop */}
             <Link href={`/${locale}/the-loop`} className="flex-shrink-0 md:absolute md:left-1/2 md:-translate-x-1/2">
               <Image
@@ -68,7 +68,7 @@ export function HeaderLoop({ locale }: HeaderLoopProps) {
                 alt="THE LOOP"
                 width={230}
                 height={78}
-                className="h-auto w-[140px] md:w-[194px]"
+                className="h-auto w-[110px] md:w-[194px]"
                 priority
                 unoptimized
               />
@@ -77,16 +77,16 @@ export function HeaderLoop({ locale }: HeaderLoopProps) {
             {/* Right Side - Always on right */}
             <div className="flex items-center justify-end gap-3 md:gap-4 ml-auto">
               {/* Language Switcher */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 md:gap-2">
                 <Link 
                   href={`/vi/the-loop`}
-                  className={`text-base md:text-lg transition-colors ${locale === 'vi' ? 'font-bold text-black' : 'text-gray-400 hover:text-gray-600'}`}
+                  className={`text-sm md:text-lg transition-colors ${locale === 'vi' ? 'font-bold text-black' : 'text-gray-400 hover:text-gray-600'}`}
                 >
                   VN
                 </Link>
                 <Link
                   href={`/en/the-loop`}
-                  className={`text-base md:text-lg transition-colors ${locale === 'en' ? 'font-bold text-black' : 'text-gray-400 hover:text-gray-600'}`}
+                  className={`text-sm md:text-lg transition-colors ${locale === 'en' ? 'font-bold text-black' : 'text-gray-400 hover:text-gray-600'}`}
                 >
                   EN
                 </Link>
@@ -97,10 +97,10 @@ export function HeaderLoop({ locale }: HeaderLoopProps) {
                 <button
                   ref={searchButtonRef}
                   onClick={() => setSearchOpen(!searchOpen)}
-                  className="p-3 transition-colors rounded-full md:rounded-none bg-[#e1e1e1] hover:bg-[#d0d0d0] shadow-none"
+                  className="p-2 md:p-3 transition-colors rounded-full md:rounded-none bg-[#e1e1e1] hover:bg-[#d0d0d0] shadow-none"
                   aria-label="Search"
                 >
-                  <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 md:w-6 md:h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </button>
@@ -145,13 +145,13 @@ export function HeaderLoop({ locale }: HeaderLoopProps) {
               {/* Hamburger Menu */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="md:hidden p-3 transition-colors hover:opacity-70 flex items-center justify-center"
+                className="md:hidden p-2 transition-colors hover:opacity-70 flex items-center justify-center"
                 aria-label="Menu"
               >
-                <span className="mburger inline-flex flex-col gap-[5px] w-6">
-                  <b className={`block h-[2px] w-full bg-black transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></b>
+                <span className="mburger inline-flex flex-col gap-[4px] w-5">
+                  <b className={`block h-[2px] w-full bg-black transition-all duration-300 ease-in-out ${menuOpen ? 'rotate-45 translate-y-[6px]' : ''}`}></b>
                   <b className={`block h-[2px] w-full bg-black transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0 scale-0' : ''}`}></b>
-                  <b className={`block h-[2px] w-full bg-black transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></b>
+                  <b className={`block h-[2px] w-full bg-black transition-all duration-300 ease-in-out ${menuOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}></b>
                 </span>
               </button>
             </div>
