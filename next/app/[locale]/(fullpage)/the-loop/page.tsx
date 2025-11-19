@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import { BannerSlider } from '@/components/the-loop';
+import { fetchBannerLoop } from '@/lib/strapi/fetchBannerLoop';
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -23,9 +25,15 @@ export default async function TheLoopPage({
   const { locale } = await params;
   const isVietnamese = locale === 'vi';
 
+  // Fetch banners from Strapi
+  const banners = await fetchBannerLoop();
+
   return (
     <main className="w-full min-h-screen bg-white">
-      {/* Trang trắng - chưa có nội dung */}
+      {/* Hero Banner Slider */}
+      <BannerSlider banners={banners} />
+
+      {/* More sections will be added here */}
     </main>
   );
 }
