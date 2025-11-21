@@ -56,18 +56,34 @@ export function NewsSection() {
         backgroundImage: 'url("https://loop.com.vn/assets/images/bg-1.png")',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'auto',
-        backgroundPosition: 'left 10%'
+        backgroundPosition: 'left 1%'
       }}
     >
+      <style jsx>{`
+        @media (min-width: 768px) {
+          section {
+            background-position: left 10% !important;
+          }
+        }
+      `}</style>
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="relative flex items-center justify-center mb-8 md:mb-12">
-          <div className="text-center">
-            <span className="inline-block">
-              <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 uppercase tracking-wide">
-                TIN TỨC NỔI BẬT
-              </span>
-            </span>
+          <div className="flex items-center w-full">
+            {/* Left Line */}
+            <div className="flex-1 h-px bg-black"></div>
+            
+            {/* Title */}
+            <div className="px-0 md:px-4 lg:px-6">
+              <div className="bg-black text-white flex items-center justify-center px-8 py-4 md:px-12 md:py-4 lg:px-20 lg:py-5">
+                <span className="text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-black uppercase whitespace-nowrap" style={{ fontWeight: '900', textShadow: '2px 2px 0px rgba(0,0,0,0.7)', letterSpacing: '-0.01em', WebkitTextStroke: '0.5px rgba(255,255,255,0.3)', fontSize: '26px' }}>
+                  <span className="md:scale-[1.4] md:inline-block">TIN TỨC NỔI BẬT</span>
+                </span>
+              </div>
+            </div>
+            
+            {/* Right Line */}
+            <div className="flex-1 h-px bg-black"></div>
           </div>
         </div>
 
