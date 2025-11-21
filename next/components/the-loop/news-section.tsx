@@ -75,15 +75,14 @@ export function NewsSection() {
         </div>
 
         {/* News Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" suppressHydrationWarning>
           {MOCK_NEWS.map((news) => (
-            <div key={news.id} className="group" style={{ height: '600px' }}>
-              <div className="bg-white shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden h-full flex flex-col">
+            <div key={news.id} className="group h-[600px]" suppressHydrationWarning>
+              <div className="bg-white shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden h-full flex flex-col" suppressHydrationWarning>
                 {/* Image */}
                 <Link 
                   href={`/events/${news.slug}`}
-                  className="block relative overflow-hidden"
-                  style={{ height: '250px' }}
+                  className="block relative overflow-hidden h-[250px]"
                 >
                   <div className="relative w-full h-full group-hover:scale-105 transition-transform duration-500">
                     <Image

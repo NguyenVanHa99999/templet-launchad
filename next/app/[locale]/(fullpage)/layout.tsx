@@ -14,7 +14,7 @@ export default async function FullPageLayout({
 
   return (
     <ViewTransitions>
-      <div className="bg-white antialiased h-full w-full">
+      <div className="bg-white antialiased h-full w-full" suppressHydrationWarning>
         {/* Header THE LOOP */}
         <HeaderLoop locale={locale} />
         

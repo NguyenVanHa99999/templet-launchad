@@ -39,7 +39,7 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
   return (
     <ViewTransitions>
       <CartProvider>
-        <div className="bg-white antialiased h-full w-full">
+        <div className="bg-white antialiased h-full w-full" suppressHydrationWarning>
           {/* Main content */}
           {children}
           
