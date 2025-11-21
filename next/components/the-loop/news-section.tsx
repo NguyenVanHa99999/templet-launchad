@@ -91,7 +91,7 @@ export function NewsSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {MOCK_NEWS.map((news) => (
             <div key={news.id} className="group" style={{ height: '600px' }}>
-              <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden h-full flex flex-col">
+              <div className="bg-white shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden h-full flex flex-col">
                 {/* Image */}
                 <Link 
                   href={`/events/${news.slug}`}
@@ -112,20 +112,29 @@ export function NewsSection() {
 
                 {/* Content */}
                 <div className="p-6 md:p-8 flex-1 flex flex-col">
-                  {/* Title */}
-                  <h4 className="mb-3 flex-grow">
-                    <Link 
-                      href={`/events/${news.slug}`}
-                      className="text-lg md:text-xl font-bold text-gray-900 uppercase leading-tight hover:text-pink-600 transition-colors duration-200 line-clamp-3"
-                    >
-                      {news.title}
-                    </Link>
-                  </h4>
-
-                  {/* Date */}
-                  <div className="text-sm text-gray-500 mb-4 flex-shrink-0">
-                    {news.date}
+                  {/* Title with fixed height */}
+                  <div className="h-24 md:h-28 mb-4">
+                    <h4 className="h-20 md:h-24">
+                      <Link 
+                        href={`/events/${news.slug}`}
+                        className="text-lg md:text-xl font-bold text-gray-900 uppercase leading-tight hover:text-pink-600 transition-colors duration-200 block overflow-hidden"
+                        style={{
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
+                          textOverflow: 'ellipsis'
+                        }}
+                      >
+                        {news.title}
+                      </Link>
+                    </h4>
+                    <div className="text-sm text-gray-500">
+                      {news.date}
+                    </div>
                   </div>
+                  
+                  {/* Spacer for CTA */}
+                  <div className="flex-grow"></div>
 
                   {/* Description (empty in original) */}
                   {news.description && (
