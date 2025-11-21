@@ -51,21 +51,8 @@ const MOCK_NEWS: NewsItem[] = [
 export function NewsSection() {
   return (
     <section 
-      className="relative py-10 md:py-16 bg-gray-50"
-      style={{
-        backgroundImage: 'url("https://loop.com.vn/assets/images/bg-1.png")',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'auto',
-        backgroundPosition: 'left 1%'
-      }}
+      className="relative py-10 md:py-16 bg-gray-50 bg-[url('https://loop.com.vn/assets/images/bg-1.png')] bg-no-repeat bg-auto bg-[position:left_1%] md:bg-[position:left_10%]"
     >
-      <style jsx>{`
-        @media (min-width: 768px) {
-          section {
-            background-position: left 10% !important;
-          }
-        }
-      `}</style>
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="relative flex items-center justify-center mb-8 md:mb-12">
