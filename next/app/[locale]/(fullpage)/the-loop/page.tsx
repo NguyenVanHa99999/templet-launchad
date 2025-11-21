@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { BannerSlider } from '@/components/the-loop';
+import { BannerSlider, NewsSection } from '@/components/the-loop';
 import { fetchBannerLoop } from '@/lib/strapi/fetchBannerLoop';
 
 export async function generateMetadata(props: {
@@ -32,6 +32,9 @@ export default async function TheLoopPage({
     <main className="w-full min-h-screen bg-white">
       {/* Hero Banner Slider */}
       <BannerSlider banners={banners} />
+
+      {/* News Section */}
+      <NewsSection />
 
       {/* More sections will be added here */}
     </main>
