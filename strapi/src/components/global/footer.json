@@ -7,11 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "logo": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::logo.logo"
-    },
     "description": {
       "type": "string"
     },
@@ -26,18 +21,18 @@
     },
     "internal_links": {
       "type": "component",
-      "repeatable": true,
-      "component": "shared.link"
+      "component": "shared.link",
+      "repeatable": true
     },
     "policy_links": {
       "type": "component",
-      "repeatable": true,
-      "component": "shared.link"
+      "component": "shared.link",
+      "repeatable": true
     },
     "social_media_links": {
       "type": "component",
-      "repeatable": true,
-      "component": "shared.link"
+      "component": "shared.link",
+      "repeatable": true
     }
   }
 }

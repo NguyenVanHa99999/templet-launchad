@@ -47,7 +47,7 @@ export function ServicesSection() {
   return (
     <section className="flex flex-col sm:flex-col md:flex-row lg:flex-row w-full gap-0 md:gap-0" suppressHydrationWarning>
       {MOCK_SERVICES.map((service) => (
-        <div key={service.id} className="relative w-full sm:w-full md:flex-1 lg:flex-1 group h-[180px] sm:h-[200px] md:h-[220px] lg:h-[260px] xl:h-[300px] 2xl:h-[320px]" suppressHydrationWarning>
+        <div key={service.id} className="relative w-full sm:w-full md:flex-1 lg:flex-1 group h-[160px] sm:h-[180px] md:h-[200px] lg:h-[220px] xl:h-[240px] 2xl:h-[250px]" suppressHydrationWarning>
           <Link 
             href={service.href}
             target={service.isExternal ? '_blank' : undefined}
@@ -84,24 +84,24 @@ export function ServicesSection() {
                     <Image
                       src={service.icon}
                       alt=""
-                      width={36}
-                      height={36}
-                      className="mx-auto sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 2xl:w-16 2xl:h-16"
+                      width={32}
+                      height={32}
+                      className="mx-auto sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10 2xl:w-11 2xl:h-11"
                       unoptimized
                     />
                   </p>
-                  <h4 className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl font-black uppercase tracking-wide hover:underline cursor-pointer transition-all duration-200 px-3 sm:px-4 md:px-4 lg:px-6">
+                  <h4 className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl 2xl:text-xl font-black uppercase tracking-wide hover:underline cursor-pointer transition-all duration-200 px-3 sm:px-4 md:px-4 lg:px-6">
                     {service.title}
                   </h4>
                 </>
               ) : (
                 <div 
-                  className="px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-3 lg:px-8 lg:py-4 xl:px-10 xl:py-5 2xl:px-12 2xl:py-6 transition-colors duration-300" 
+                  className="px-3 py-2 sm:px-4 sm:py-2 md:px-5 md:py-3 lg:px-6 lg:py-3 xl:px-7 xl:py-3 2xl:px-8 2xl:py-4 transition-colors duration-300" 
                   style={{ backgroundColor: '#3b352b' }}
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f16178'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#3b352b'}
                 >
-                  <span className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl font-black uppercase tracking-wide text-white cursor-pointer">
+                  <span className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl 2xl:text-xl font-black uppercase tracking-wide text-white cursor-pointer">
                     {service.title}
                   </span>
                 </div>
